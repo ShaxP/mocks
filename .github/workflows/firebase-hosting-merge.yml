@@ -15,12 +15,12 @@ jobs:
         with:
           channel: 'stable' # or: 'beta', 'dev' or 'master'
       # Build Website
-        - name: Build Website
-          run: |
-            flutter config --enable-web
-            flutter pub get
-            flutter build web --release
-          working-directory: ./
+      - name: Build Website
+        run: |
+          flutter config --enable-web
+          flutter pub get
+          flutter build web --release
+        working-directory: ./
 #      - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
