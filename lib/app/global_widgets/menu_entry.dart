@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '/app/state/view_controller.dart';
+import 'page_navigator.dart';
 
 class MenuEntry extends StatelessWidget {
   final String title;
+  final String? subtitle;
   final Widget page;
   const MenuEntry({
     required this.title,
+    this.subtitle,
     required this.page,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text(title),
-      ),
+    var subtitleWidget = subtitle == null ? null : Text(subtitle!);
+    return ListTile(
+      title: Text(title),
+      subtitle: subtitleWidget,
       onTap: () {
-        Provider.of<ViewController>(context, listen: false).currentView = page;
+        PageNavigator.goto(page);
+        // Provider.of<ViewController>(context, listen: false).currentView = page;
       },
+      trailing: const Icon(Icons.chevron_right),
     );
   }
 }
