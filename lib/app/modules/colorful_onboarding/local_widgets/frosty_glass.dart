@@ -37,7 +37,7 @@ class FrostyGlass extends StatelessWidget {
             decoration: const BoxDecoration(
               color: Colors.white10,
             ),
-            // child: child,
+            child: child,
           ),
         ),
       ),
