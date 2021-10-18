@@ -14,7 +14,7 @@ class ColorfulPage1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const color = Color(0xFFDF9499);
-    var fillColor = color.lighter(15);
+    var fillColor = color.lighter(25);
     var textColor = color.darker(40);
 
     return ColorfulPage(

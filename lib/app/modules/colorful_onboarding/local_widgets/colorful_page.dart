@@ -39,6 +39,7 @@ class ColorfulPage extends StatelessWidget {
       top: Radius.circular(60),
     );
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         elevation: 0,
