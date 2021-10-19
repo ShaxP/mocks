@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_color/flutter_color.dart';
 import 'package:mocks/app/global_widgets/gap.dart';
 
 import '/globals.dart';
@@ -11,33 +10,26 @@ class ColorfulPage2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const color = Color(0xFF4B9BC0);
-    var fillColor = color.lighter(35);
-    var textColor = color.darker(20);
+    const bgGradient =
+        LinearGradient(colors: [Color(0xFF408fb8), Color(0xFF4894b7)]);
 
     return ColorfulPage(
-      color: color,
+      bgGradient: bgGradient,
       title: 'Nice to meet you',
       subtitle: 'Just a few more details',
       currentPage: 2,
       pageCount: 3,
       image: 'images/bg2.png',
       children: [
-        ColorfulTextField(
-          fillColor: fillColor,
-          textColor: textColor,
+        const ColorfulTextField(
           label: "What's your firstname?",
         ),
         Gap.v(Globals.gap),
-        ColorfulTextField(
-          fillColor: fillColor,
-          textColor: textColor,
+        const ColorfulTextField(
           label: "What's your lastname?",
         ),
         Gap.v(Globals.gap),
-        ColorfulTextField(
-          fillColor: fillColor,
-          textColor: textColor,
+        const ColorfulTextField(
           label: "What's your occupation?",
         ),
       ],

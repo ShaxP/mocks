@@ -11,6 +11,7 @@ class MocksApp extends StatelessWidget {
     // var navigationController = Provider.of<NavigationController>(context);
     debugPrint('Building MyApp');
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Showcases',
       theme: ThemeData(
         primarySwatch: Colors.red,

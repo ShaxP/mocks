@@ -32,7 +32,7 @@ class FrostyGlass extends StatelessWidget {
       child: ClipRRect(
         borderRadius: borderRadius,
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+          filter: ImageFilter.blur(sigmaX: 42, sigmaY: 42),
           child: Container(
             decoration: const BoxDecoration(
               color: Colors.white10,
