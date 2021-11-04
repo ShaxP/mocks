@@ -1,33 +1,20 @@
 import 'package:flutter/material.dart';
-
-import '/app/global_widgets/page_navigator.dart';
-import 'landing/landing_page.dart';
+import 'package:mocks/app/navigation/my_routes.dart';
+import 'package:mocks/app/navigation/page_navigator.dart';
 
 class MocksApp extends StatelessWidget {
   const MocksApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // var navigationController = Provider.of<NavigationController>(context);
-    debugPrint('Building MyApp');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Showcases',
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: Navigator(
-        pages: [
-          const MaterialPage(
-            child: LandingPage(),
-          ),
-          if (PageNavigator.hasPages) ...PageNavigator.pages,
-        ],
-        onPopPage: (route, result) {
-          PageNavigator.pop();
-          return route.didPop(result);
-        },
-      ),
+      initialRoute: Routes.landing,
+      onGenerateRoute: PageNavigator.generateRoute,
     );
   }
 }

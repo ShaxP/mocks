@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'page_navigator.dart';
-
 class MenuEntry extends StatelessWidget {
   final String title;
   final String? subtitle;
-  final Widget page;
+  // final Widget page;
+  final String page;
   const MenuEntry({
     required this.title,
     this.subtitle,
@@ -20,7 +19,8 @@ class MenuEntry extends StatelessWidget {
       title: Text(title),
       subtitle: subtitleWidget,
       onTap: () {
-        PageNavigator.goto(page);
+        // PageNavigator.goto(page);
+        Navigator.pushNamed(context, page);
         // Provider.of<ViewController>(context, listen: false).currentView = page;
       },
       trailing: const Icon(Icons.chevron_right),

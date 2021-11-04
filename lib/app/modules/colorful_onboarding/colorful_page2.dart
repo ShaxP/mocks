@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:mocks/app/global_widgets/gap.dart';
+import 'package:mocks/app/navigation/my_routes.dart';
+import 'package:mocks/app/navigation/page_navigator.dart';
+import '/app/global_widgets/gap.dart';
 
 import '/globals.dart';
-import 'local_widgets/colorful_page.dart';
-import 'local_widgets/colorful_textfield.dart';
+import '/app/global_widgets/colorful_page.dart';
+import '/app/global_widgets/colorful_textfield.dart';
 
 class ColorfulPage2 extends StatelessWidget {
-  const ColorfulPage2({Key? key}) : super(key: key);
+  final Animation<double> animation;
+  final Animation<double> secondaryAnimation;
+  const ColorfulPage2({
+    required this.animation,
+    required this.secondaryAnimation,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +22,9 @@ class ColorfulPage2 extends StatelessWidget {
         LinearGradient(colors: [Color(0xFF408fb8), Color(0xFF4894b7)]);
 
     return ColorfulPage(
+      animation: animation,
+      secondaryAnimation: secondaryAnimation,
+      heightPortion: 0.55,
       bgGradient: bgGradient,
       title: 'Nice to meet you',
       subtitle: 'Just a few more details',
@@ -33,7 +44,12 @@ class ColorfulPage2 extends StatelessWidget {
           label: "What's your occupation?",
         ),
       ],
-      onAction: () {},
+      onRightAction: () {
+        PageNavigator.goto(context, Routes.onboardingPage3);
+      },
+      onLeftAction: () {
+        PageNavigator.pop(context);
+      },
     );
   }
 }

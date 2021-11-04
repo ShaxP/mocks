@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:mocks/app/global_widgets/page_navigator.dart';
-import 'package:mocks/app/modules/colorful_onboarding/colorful_page2.dart';
+import 'package:mocks/app/navigation/my_routes.dart';
+import 'package:mocks/app/navigation/page_navigator.dart';
 
 import '/app/global_widgets/gap.dart';
-import '/app/modules/colorful_onboarding/local_widgets/colorful_page.dart';
+import '/app/global_widgets/colorful_page.dart';
 import '/globals.dart';
-import 'local_widgets/colorful_textfield.dart';
+import '/app/global_widgets/colorful_textfield.dart';
 
 class ColorfulPage1 extends StatelessWidget {
-  const ColorfulPage1({Key? key}) : super(key: key);
+  final Animation<double> animation;
+  final Animation<double> secondaryAnimation;
+  const ColorfulPage1({
+    required this.animation,
+    required this.secondaryAnimation,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +22,9 @@ class ColorfulPage1 extends StatelessWidget {
         LinearGradient(colors: [Color(0xFFf699ae), Color(0xFFcf6a7c)]);
 
     return ColorfulPage(
+      animation: animation,
+      secondaryAnimation: secondaryAnimation,
+      heightPortion: 0.65,
       bgGradient: bgGradient,
       title: 'Welcome to Rndevu',
       subtitle: "We'd like to know more about you",
@@ -37,8 +46,11 @@ class ColorfulPage1 extends StatelessWidget {
           isPassword: true,
         ),
       ],
-      onAction: () {
-        PageNavigator.goto(const ColorfulPage2());
+      onRightAction: () {
+        PageNavigator.goto(context, Routes.onboardingPage2);
+      },
+      onLeftAction: () {
+        PageNavigator.pop(context);
       },
     );
   }

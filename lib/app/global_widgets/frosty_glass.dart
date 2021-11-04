@@ -26,7 +26,7 @@ class FrostyGlass extends StatelessWidget {
         borderRadius: borderRadius,
         border: Border.all(
           width: 1.5,
-          color: Colors.white.withOpacity(0.35),
+          color: Colors.white.withOpacity(0.65),
         ),
       ),
       child: ClipRRect(
@@ -36,6 +36,10 @@ class FrostyGlass extends StatelessWidget {
           child: Container(
             decoration: const BoxDecoration(
               color: Colors.white10,
+              // gradient: RadialGradient(
+              //     colors: [Colors.white54, Colors.white10],
+              //     center: Alignment.bottomRight,
+              //     radius: 1.5),
             ),
             child: child,
           ),
